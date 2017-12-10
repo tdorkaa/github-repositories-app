@@ -25,4 +25,5 @@ export class SearchBoxComponent {
   onOwnerNameUpdate(event: any) {
     this.ownerName = (<HTMLInputElement>event.target).value;
   }
+
 }

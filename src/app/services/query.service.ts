@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {RepositoryService} from './repository.service';
 
@@ -11,17 +11,18 @@ export class QueryService {
   }
 
   searchRepositoryByName(owner: string, name: string) {
+    let found = false;
     this.httpClient.get(this.urlSearchRepositoryByName + name)
       .subscribe(responseData => {
         const repositories = responseData.items.forEach(repository => {
           if (repository.full_name === owner + '/' + name) {
             this.repositoryService.setRepository(repository);
-            return;
+            found = true;
           }
         });
-        //TODO implement an error branch
-        console.log('repository not found');
-
+        if (!found) {
+          this.repositoryService.setRepository(undefined);
+        }
       });
   }
 

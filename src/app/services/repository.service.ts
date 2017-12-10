@@ -7,10 +7,6 @@ export class RepositoryService {
 
   setRepository(repository) {
     this.repository = repository;
-    this.repositoryLoaded.emit(this.getRepository());
-  }
-
-  getRepository() {
-    return Object.assign({}, this.repository);
+    this.repositoryLoaded.emit(this.repository);
   }
 }
