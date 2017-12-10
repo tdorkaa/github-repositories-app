@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {QueryService} from '../../services/query.service';
 
 @Component({
   selector: 'app-search-box',
@@ -9,11 +10,11 @@ export class SearchBoxComponent {
 
   repositoryName: string;
 
-  constructor() {
+  constructor(private queryService: QueryService) {
   }
 
   searchRepositoryByName() {
-    // call to query service to be implemented
+    this.queryService.searchRepositoryByName(this.repositoryName);
   }
 
   onRepoNameUpdate(event: any) {
