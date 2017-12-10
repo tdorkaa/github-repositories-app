@@ -1,3 +1,9 @@
 <h3>Repository information</h3>
-<p>Full Name<span>{{repository.full_name}}</span></p>
+<p>Name: <span>{{repository.full_name}}</span></p>
+<p>URL: <span>{{repository.url}}</span></p>
+<p>Description: <span>{{repository.description}}</span></p>
+<p>Language: <span>{{repository.language}}</span></p>
+<p>Is it a private repository? <span>{{repository.private === true ? 'Yes' : 'No'}}</span></p>
+<p>How many forks does this repository have? <span>{{repository.forks}}</span></p>
+<p>Did anyone open an issue for this repository? <span>{{repository.has_issues === true ? 'Yes' : 'No'}}</span></p>
 
