@@ -8,17 +8,21 @@ import {QueryService} from '../../services/query.service';
 })
 export class SearchBoxComponent {
 
+  ownerName: string;
   repositoryName: string;
 
   constructor(private queryService: QueryService) {
   }
 
   searchRepositoryByName() {
-    this.queryService.searchRepositoryByName(this.repositoryName);
+    this.queryService.searchRepositoryByName(this.ownerName, this.repositoryName);
   }
 
   onRepoNameUpdate(event: any) {
     this.repositoryName = (<HTMLInputElement>event.target).value;
   }
 
+  onOwnerNameUpdate(event: any) {
+    this.ownerName = (<HTMLInputElement>event.target).value;
+  }
 }
