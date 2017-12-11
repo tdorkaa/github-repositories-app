@@ -14,7 +14,7 @@ export class QueryService {
     let found = false;
     this.httpClient.get(this.urlSearchRepositoryByName + name)
       .subscribe(responseData => {
-        const repositories = responseData.items.forEach(repository => {
+        const repositories = responseData['items'].forEach(repository => {
           if (repository.full_name === owner + '/' + name) {
             this.repositoryService.setRepository(repository);
             found = true;
