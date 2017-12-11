@@ -1,7 +1,12 @@
-<div *ngIf="issues">
-  <h3>Issues</h3>
-  <div *ngFor="let issue of issues">
-    <p>Issue: {{issue.title}}</p>
-    <p>Url: {{issue.url}}</p>
+<div *ngIf="issues" class="row">
+  <div class="col-xs-12 col-md-8 col-md-offset-2">
+    <div *ngFor="let issue of issues" class="panel panel-primary">
+      <div class="panel-heading">
+        <p>Issue: {{issue.title}}</p>
+      </div>
+      <div class="panel-body">
+        <p>Url: {{issue.url}}</p>
+      </div>
+    </div>
   </div>
 </div>
