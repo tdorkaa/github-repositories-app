@@ -34,6 +34,10 @@ export class QueryService {
         (responseData) => {
           const issues = responseData['items'].slice(0, 4);
           this.issuesService.setIssues(issues);
+        },
+        err => {
+          console.log('Something went wrong!');
+          this.issuesService.setIssues(undefined);
         }
       );
   }

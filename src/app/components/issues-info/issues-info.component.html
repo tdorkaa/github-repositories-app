@@ -1,0 +1,7 @@
+<div *ngIf="issues">
+  <h3>Issues</h3>
+  <div *ngFor="let issue of issues">
+    <p>Issue: {{issue.title}}</p>
+    <p>Url: {{issue.url}}</p>
+  </div>
+</div>
