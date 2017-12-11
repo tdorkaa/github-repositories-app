@@ -1,6 +1,7 @@
 import {EventEmitter, Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {RepositoryService} from './repository.service';
+import {IssuesService} from './issues.service';
 
 @Injectable()
 export class QueryService {
@@ -8,7 +9,7 @@ export class QueryService {
   urlSearchRepositoryByOwner = 'https://api.github.com/search/repositories?q=';
   urlSearchIssuesByOwnerAndRepositoryName = 'https://api.github.com/search/issues?q=repo:';
 
-  constructor(private httpClient: HttpClient, private repositoryService: RepositoryService) {
+  constructor(private httpClient: HttpClient, private repositoryService: RepositoryService, private issuesService: IssuesService) {
   }
 
   searchRepositoryByOwner(owner: string, name: string) {
@@ -31,7 +32,8 @@ export class QueryService {
     this.httpClient.get(this.urlSearchIssuesByOwnerAndRepositoryName + owner + '/' + name)
       .subscribe(
         (responseData) => {
-          console.log(responseData);
+          const issues = responseData['items'].slice(0, 4);
+          this.issuesService.setIssues(issues);
         }
       );
   }

@@ -8,20 +8,23 @@ import {QueryService} from './services/query.service';
 import {HttpClientModule} from '@angular/common/http';
 import {RepositoryService} from './services/repository.service';
 import { RepositoryInfoComponent } from './components/repository-info/repository-info.component';
+import { IssuesInfoComponent } from './components/issues-info/issues-info.component';
+import {IssuesService} from './services/issues.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchBoxComponent,
-    RepositoryInfoComponent
+    RepositoryInfoComponent,
+    IssuesInfoComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule
   ],
   providers: [
-    QueryService, RepositoryService
+    QueryService, RepositoryService, IssuesService
   ],
   bootstrap: [AppComponent]
 })
