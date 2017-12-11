@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {RepositoryService} from '../services/repository.service';
+import {RepositoryService} from '../../services/repository.service';
 
 @Component({
   selector: 'app-repository-info',

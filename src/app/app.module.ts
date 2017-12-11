@@ -7,7 +7,7 @@ import {SearchBoxComponent} from './components/search-box/search-box.component';
 import {QueryService} from './services/query.service';
 import {HttpClientModule} from '@angular/common/http';
 import {RepositoryService} from './services/repository.service';
-import { RepositoryInfoComponent } from './repository-info/repository-info.component';
+import { RepositoryInfoComponent } from './components/repository-info/repository-info.component';
 
 
 @NgModule({

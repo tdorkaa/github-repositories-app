@@ -1,6 +1,6 @@
-<div *ngIf="repository" class="card">
-  <div class="card-body">
-    <h3 class="card-title">Repository information</h3>
+<div *ngIf="repository">
+  <div>
+    <h3>Repository information</h3>
     <p>Name: <span>{{repository.full_name}}</span></p>
     <p>URL: <span>{{repository.url}}</span></p>
     <p>Description: <span>{{repository.description}}</span></p>
