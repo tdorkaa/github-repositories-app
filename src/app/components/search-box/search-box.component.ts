@@ -14,8 +14,8 @@ export class SearchBoxComponent {
   constructor(private queryService: QueryService) {
   }
 
-  searchRepositoryByName() {
-    this.queryService.searchRepositoryByName(this.ownerName, this.repositoryName);
+  searchRepositoryByOwner() {
+    this.queryService.searchRepositoryByOwner(this.ownerName, this.repositoryName);
   }
 
   onRepoNameUpdate(event: any) {

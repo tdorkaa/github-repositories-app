@@ -10,7 +10,7 @@ export class QueryService {
   constructor(private httpClient: HttpClient, private repositoryService: RepositoryService) {
   }
 
-  searchRepositoryByName(owner: string, name: string) {
+  searchRepositoryByOwner(owner: string, name: string) {
     let found = false;
     this.httpClient.get(this.urlSearchRepositoryByName + name)
       .subscribe(responseData => {
