@@ -26,4 +26,7 @@ export class SearchBoxComponent {
     this.ownerName = (<HTMLInputElement>event.target).value;
   }
 
+  searchIssuesByRepositoryName() {
+    this.queryService.searchIssuesByRepositoryName(this.ownerName, this.repositoryName);
+  }
 }
