@@ -1,5 +1,16 @@
 # GithubRepositoriesApp
 
+1. If you do not have Angular CLI, install it with: sudo npm install -g @angular/cli (only use "sudo" on Mac/ Linux. it is true for the following steps too)
+2. npm install from the project's root
+3. ng serve to start the project from port: localhost:4200 --> If ng serve fails try npm start
+
+What to expect from the application:
+- If you query the repositories you need to type both the repository's owner and the repository's name correctly (it is case sensitive!) and the app will give you back the first result
+- If you are interested in the repository's issues, you also need to type the same and it will show you the first five ones
+
+Have fun to use it. :)
+
+Angular CLI's README.md:
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.0.
 
 ## Development server
