@@ -12,6 +12,7 @@ export class QueryService {
   constructor(private httpClient: HttpClient, private repositoryService: RepositoryService, private issuesService: IssuesService) {
   }
 
+  // For this query you need two inputs and it will give back the first one
   searchRepositoryByOwner(owner: string, name: string) {
     let found = false;
     this.httpClient.get(this.urlSearchRepositoryByOwner + name)
@@ -28,6 +29,7 @@ export class QueryService {
       });
   }
 
+  // For this query you also need two inputs and it will give back the first five elements
   searchIssuesByRepositoryName(owner: string, name: string) {
     this.httpClient.get(this.urlSearchIssuesByOwnerAndRepositoryName + owner + '/' + name)
       .subscribe(
