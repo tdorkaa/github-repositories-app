@@ -1,13 +1,33 @@
-import { TestBed, async } from '@angular/core/testing';
-import { AppComponent } from './app.component';
+import {TestBed, async} from '@angular/core/testing';
+import {AppComponent} from './app.component';
+import {RepositoryInfoComponent} from './components/repository-info/repository-info.component';
+import {SearchBoxComponent} from './components/search-box/search-box.component';
+import {IssuesInfoComponent} from './components/issues-info/issues-info.component';
+import {QueryService} from './services/query.service';
+import {HttpClientModule} from '@angular/common/http';
+import {RepositoryService} from './services/repository.service';
+import {IssuesService} from './services/issues.service';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        RepositoryInfoComponent,
+        SearchBoxComponent,
+        IssuesInfoComponent
       ],
+      imports: [
+        HttpClientModule
+      ],
+      providers: [
+        QueryService,
+        RepositoryService,
+        IssuesService
+      ]
     }).compileComponents();
   }));
+
   it('should create the app', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
@@ -17,11 +37,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('app');
-  }));
-  it('should render title in a h1 tag', async(() => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to app!');
   }));
 });

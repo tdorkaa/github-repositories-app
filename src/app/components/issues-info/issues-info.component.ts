@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {IssuesService} from '../../services/issues.service';
 
 @Component({
@@ -6,18 +6,23 @@ import {IssuesService} from '../../services/issues.service';
   templateUrl: './issues-info.component.html',
   styleUrls: ['./issues-info.component.css']
 })
-export class IssuesInfoComponent implements OnInit {
+export class IssuesInfoComponent implements OnInit, OnDestroy {
+  private subscription: any;
   issues;
 
   constructor( private issuesService: IssuesService) { }
 
   ngOnInit() {
-    this.issuesService.issuesLoaded
+    this.subscription = this.issuesService.issuesLoaded
       .subscribe(
         (issues) => {
           this.issues = issues;
         }
       );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }
